@@ -1,0 +1,72 @@
+﻿dev: http://app1.greemlins.com/zombietown/index.php?r=
+prod: http://app-v2.greemlins.com/zombietown/index.php?r=
+
+VK: 52a5cdbcfe2421440e000000
+OK: 52a5cdfdfe24210407000001
+MM: 52f8f2f9387b67015792ff46
+
+LIFE: 52a5d149fe2421700c000000
+CURRENCY_SOFT: 52a5d150fe2421cc10000000
+HELP: 52a5d158fe24212808000000
+
+GameController
+	game/init
+		social_player_id - ID игрока из соц сети
+		social_id - MongoId
+		url_image - string
+		first_name - string
+		last_name - string
+		social_friends_ids - ID игроков в соц. сети. в формате JSON
+
+PlayerController
+	player/TopPage
+		social_id - MongoId
+		limit - int
+		offset - int
+		
+	player/PositionTotal
+		player_id - MongoId
+
+	player/PlayersInfo
+		players_ids - массив MongoId игроков в формате JSON
+		
+	player/PlayerInfo
+		player_id - MongoId
+
+	player/SetStatusPost
+		player_id - MongoId
+		
+LevelController
+	level/start
+		player_id - MongoId
+		level_id - MongoId	
+	
+	level/end
+		player_id - MongoId
+		level_id - MongoId
+		life_count - int - кол-во жизней(ходов), которые были потрачены
+		
+	level/save
+		player_id - MongoId
+		level_id - MongoId
+		level_progress - JSON
+		life_count - int - кол-во жизней(ходов), которые были потрачены
+		
+GiftController
+	gift/send
+		player_id - MongoId - ID игрока который собирается подарить подарки
+		friends_ids - массив MongoId игроков в формате JSON
+		
+PurchaseController
+	purchase/MakePurchaseSoft
+		player_id - MongoId
+		purchase_id - MongoId
+		
+	purchase/MakePurchaseHardVK
+	
+	purchase/MakePurchaseHardOK
+	
+	purchase/MakePurchaseHardMM
+
+BwfGameZombieTown
+BwfGameZombieTown
